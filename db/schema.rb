@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_24_043222) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_24_182923) do
+  create_table "ach_transactions", force: :cascade do |t|
+    t.string "account_number", null: false
+    t.string "routing_number", null: false
+    t.date "billing_date", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "merchant_id"
+    t.index ["billing_date"], name: "index_ach_transactions_on_billing_date"
+    t.index ["merchant_id"], name: "index_ach_transactions_on_merchant_id"
+  end
+
   create_table "cc_transactions", force: :cascade do |t|
     t.string "card_number", null: false
     t.string "expiry_month", null: false
@@ -32,5 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_043222) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "ach_transactions", "merchants"
   add_foreign_key "cc_transactions", "merchants"
 end
