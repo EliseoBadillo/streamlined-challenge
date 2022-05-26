@@ -7,7 +7,7 @@ class AchTransaction < ApplicationRecord
   validates :routing_number, length: { is: 9 }
   validates :routing_number, numericality: { only_integer: true }
   validates :routing_number, inclusion: { in: VALID_ROUTING_NUMBERS, message: "%{value} is not a valid routing number" }
-  validates :amount, numericality: true
+  validates :amount, numericality: { greater_than: 1.00 }
 
   belongs_to :merchant
 end

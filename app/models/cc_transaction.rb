@@ -12,7 +12,7 @@ class CcTransaction < ApplicationRecord
   validates :cvv, numericality: { only_integer: true }
   validates :zip, length: { is: 5 }
   validates :zip, numericality: { only_integer: true }
-  validates :amount, numericality: true
+  validates :amount, numericality: { greater_than: 0.30 }
 
   belongs_to :merchant
 

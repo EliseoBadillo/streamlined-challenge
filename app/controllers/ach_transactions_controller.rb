@@ -9,11 +9,20 @@ class AchTransactionsController < ApplicationController
 
   def create
     transaction = AchTransaction.new(ach_transaction_params)
-    if transaction.save
+    transaction_fee = (1.0 + (0.01 * transaction.amount)).round(2)
+    net_amount = transaction.amount - transaction_fee
+    payout = Payout.find_or_create_by(billing_date: ach_transaction_params[:billing_date], merchant_id: ach_transaction_params[:merchant_id])
+    payout.gross_ach_amount += transaction.amount
+    payout.ach_fees += transaction_fee
+    payout.net_ach_amount += net_amount
+    payout.total_gross += transaction.amount
+    payout.total_fees += transaction_fee
+    payout.total_net += net_amount
+    if transaction.save && payout.save
       render :json => transaction
     else
       render :json => {
-        :errors => transaction.errors.full_messages
+        :errors => transaction.errors.full_messages.concat(payout.errors.full_messages)
       }, :status => :unprocessable_entity
     end
   end

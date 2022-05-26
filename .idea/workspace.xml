@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="04705bb8-0a1f-44af-bfbc-f5d0d0a13d3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ach_transaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ach_transaction.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/cc_transaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cc_transaction.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/merchant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/merchant.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,7 @@
   </component>
   <component name="ProjectId" id="29Ren8QhpL0bVp2bzCYyUzuxW7W" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
